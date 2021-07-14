@@ -38,12 +38,12 @@
             if(empty($Lastname=basic_validation($_POST['Lastname']))) $flag = true;
             if(empty($Gender=basic_validation($_POST['Gender']))) $flag = true;
             if(empty($DOB=basic_validation($_POST['DOB']))) $flag = true;
-            if(empty($phone=basic_validation($_POST['phone']))) $flag = true;
+            if(empty($religion=basic_validation($_POST['Religion']))) $flag = true;
             if(empty($Email=basic_validation($_POST['Email']))) $flag = true;
             if(empty($Username=basic_validation($_POST['Username']))) $flag = true;
             if(empty($Password=basic_validation($_POST['Password']))) $flag = true;
 
-            $religion = basic_validation($_POST['Religion']);
+            $phone = basic_validation($_POST['phone']);
             $presentAddress = basic_validation($_POST['presentaddress']);
             $permanentAddress = basic_validation($_POST['Permanentaddress']);
             $website = basic_validation($_POST['linked']);
