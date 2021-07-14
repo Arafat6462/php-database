@@ -18,6 +18,7 @@
  	$signupSuccess = $signupFailed = "";
   $flag = false;
   $isvalid = true;
+  $usernameErr = "";
 
 
  	if ($_SERVER['REQUEST_METHOD'] === "POST")
@@ -42,10 +43,10 @@
             if(empty($Username=basic_validation($_POST['Username']))) $flag = true;
             if(empty($Password=basic_validation($_POST['Password']))) $flag = true;
 
-            $religion = $_POST['Religion'];
-            $presentAddress = $_POST['presentaddress'];
-            $permanentAddress = $_POST['Permanentaddress'];
-            $website = $_POST['linked'];
+            $religion = basic_validation($_POST['Religion']);
+            $presentAddress = basic_validation($_POST['presentaddress']);
+            $permanentAddress = basic_validation($_POST['Permanentaddress']);
+            $website = basic_validation($_POST['linked']);
 
 
              if($flag)
@@ -57,32 +58,32 @@
 
                if(strlen($Firstname) > 50)
                   {
-                    $usernameErr = "Username max character is 50.";
+                    $usernameErr = "Firstname max character is 50.";
                     $isvalid = false;
                   }
                if(strlen($Lastname) > 50)
                   {
-                    $usernameErr = "Username max character is 50.";
+                    $usernameErr = "Lastname max character is 50.";
                     $isvalid = false;
                   }
                 if(strlen($Gender) > 50)
                   {
-                    $usernameErr = "Username max character is 50.";
+                    $usernameErr = "Gender max character is 50.";
                     $isvalid = false;
                   }
                if(strlen($DOB) > 50)
                   {
-                    $usernameErr = "Username max character is 50.";
+                    $usernameErr = "DOB max character is 50.";
                     $isvalid = false;
                   }
                 if(strlen($phone) > 50)
                   {
-                    $usernameErr = "Username max character is 50.";
+                    $usernameErr = "phone max character is 50.";
                     $isvalid = false;
                   }
                if(strlen($Email) > 50)
                   {
-                    $usernameErr = "Username max character is 50.";
+                    $usernameErr = "Email max character is 50.";
                     $isvalid = false;
                   }
                 if(strlen($username) > 50)
@@ -92,27 +93,27 @@
                   }
                if(strlen($Password) > 50)
                   {
-                    $usernameErr = "Username max character is 50.";
+                    $usernameErr = "Password max character is 50.";
                     $isvalid = false;
                   }
                 if(strlen($religion) > 50)
                   {
-                    $usernameErr = "Username max character is 50.";
+                    $usernameErr = "Religion max character is 50.";
                     $isvalid = false;
                   }
                if(strlen($presentAddress) > 100)
                   {
-                    $usernameErr = "Username max character is 50.";
+                    $usernameErr = "presentAddress max character is 50.";
                     $isvalid = false;
                   }
                 if(strlen($permanentAddress) > 100)
                   {
-                    $usernameErr = "Username max character is 50.";
+                    $usernameErr = "permanentAddress max character is 50.";
                     $isvalid = false;
                   }
                if(strlen($website) > 50)
                   {
-                    $usernameErr = "Username max character is 50.";
+                    $usernameErr = "website max character is 50.";
                     $isvalid = false;
                   }
 
@@ -283,6 +284,7 @@
       <input type="submit" value="Sign-up">
 
       <span style="color: red"><?php echo $signupFailed; ?></span>
+      <span style="color: red"><?php echo $usernameErr; ?></span>
       <span style="color: green"><?php echo "<br><br><br>click here to <a href = 'login.php'>login</a>" ?></span>
 
 
